@@ -1,0 +1,1 @@
+{"doc":" @ClassName: TenantEntity\n @Description: 类描述\n @author: Miles\n @date: 2024/6/5 16:25\n","fields":[{"name":"tenantId","doc":" 租户编号\n"}],"enumConstants":[],"methods":[],"constructors":[]}

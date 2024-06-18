@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>miles-self</artifactId>
+        <groupId>self.miles</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+        <module>miles-common-antlr4</module>
+        <module>miles-common-core</module>
+        <module>miles-common-mybatis</module>
+        <module>miles-common-redis</module>
+        <module>miles-common-satoken</module>
+        <module>miles-common-web</module>
+        <module>miles-common-idempotent</module>
+        <module>miles-common-log</module>
+        <module>miles-common-dubbo</module>
+        <module>miles-common-alibaba-bom</module>
+        <module>miles-common-json</module>
+        <module>miles-common-doc</module>
+    </modules>
+
+    <artifactId>miles-common</artifactId>
+
+    <properties>
+    </properties>
+
+</project>

@@ -1,0 +1,1 @@
+{"doc":" @ClassName: BaseEntity\n @Description: 类描述\n @author: Miles\n @date: 2024/5/31 10:14\n","fields":[{"name":"createBy","doc":" 创建者\n"},{"name":"createTime","doc":" 创建时间\n"},{"name":"updateBy","doc":" 更新者\n"},{"name":"updateTime","doc":" 更新时间\n"},{"name":"params","doc":" 请求参数\n"}],"enumConstants":[],"methods":[],"constructors":[]}

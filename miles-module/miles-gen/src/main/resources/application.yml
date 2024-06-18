@@ -1,0 +1,45 @@
+gen:
+  author: Miles
+#  packageName: self.miles.sys
+  packageName: com.ares.jwxl.sync
+  autoRemovePre: true
+  tablePrefix: self
+#  absolutePath: D:\workspace\com\miles-self\miles-module\miles-system
+  absolutePath: D:\workspace\com\ares-boot\ares-modules\ares-jwxl-sync
+
+
+
+# Tomcat
+server:
+  port: 9929
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: miles-gen
+  profiles:
+    # 环境配置
+    active: @profiles.active@
+  datasource:
+    dynamic:
+      datasource:
+        # todo: 修改数据库明文
+        master:
+          driverClassName: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://120.76.228.57:3300/selfblog?useUnicode=true&characterEncoding=utf-8&useSSL=false
+          username: root
+          password: miles
+      primary: master
+mybatis-plus:
+  mapper-package: self.miles.**.mapper
+  mapper-locations: classpath*:mappers/*.xml
+
+--- # 不输出日志
+logging:
+  level:
+    root: off
+    org:
+      springframework: OFF
+spring:
+  main:
+    banner-mode: "off"

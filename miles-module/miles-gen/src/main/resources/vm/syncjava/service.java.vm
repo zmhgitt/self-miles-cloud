@@ -1,0 +1,47 @@
+package ${packageName}.service;
+#set($ObjectParamSign=0)
+#foreach ($column in $columns)
+    #if($column.javaField.equals('departmentId'))
+        #set($ObjectParamSign=$ObjectParamSign+2)
+        #set($ObjectParam='DeptParam')
+    #elseif($column.javaField.equals('deptId'))
+        #set($ObjectParamSign=$ObjectParamSign+2)
+        #set($ObjectParam='DeptParam')
+    #elseif($column.javaField.equals('unitId'))
+        #set($ObjectParamSign=$ObjectParamSign+1)
+        #set($ObjectParam='UnitParam')
+    #else
+        #set($ObjectParam='SyncBaseParam')
+    #end
+#end
+#if($ObjectParamSign==1)
+    #set($ObjectParam='UnitParam')
+#elseif($ObjectParamSign==3)
+    #set($ObjectParam='DeptParam')
+#else
+    #set($ObjectParam='SyncBaseParam')
+#end
+
+##自定义ObjectParam（适用于自动生成不准的情况）
+#if($table.sign==1)
+    #set($ObjectParam='SyncBaseParam')
+#elseif($table.sign==2)
+    #set($ObjectParam='UnitParam')
+#elseif($table.sign==3)
+    #set($ObjectParam='DeptParam')
+#end
+import ${packageName}.model.po.${ClassName};
+import ${packageName}.model.bo.${ObjectParam};
+import java.util.List;
+/**
+ * ${functionName}Service接口
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+public interface ${ClassName}Service{
+    /**
+     * 查询${functionName}列表
+     */
+    List<${ClassName}> queryList(${ObjectParam} param);
+}

@@ -1,0 +1,53 @@
+package ${packageName}.service.impl;
+#set($ObjectParamSign=0)
+#foreach ($column in $columns)
+    #if($column.javaField.equals('departmentId'))
+        #set($ObjectParamSign=$ObjectParamSign+2)
+        #set($ObjectParam='DeptParam')
+    #elseif($column.javaField.equals('deptId'))
+        #set($ObjectParamSign=$ObjectParamSign+2)
+        #set($ObjectParam='DeptParam')
+    #elseif($column.javaField.equals('unitId'))
+        #set($ObjectParamSign=$ObjectParamSign+1)
+        #set($ObjectParam='UnitParam')
+    #else
+        #set($ObjectParam='SyncBaseParam')
+    #end
+#end
+#if($ObjectParamSign==1)
+    #set($ObjectParam='UnitParam')
+#elseif($ObjectParamSign==3)
+    #set($ObjectParam='DeptParam')
+#else
+    #set($ObjectParam='SyncBaseParam')
+#end
+import  ${packageName}.service.${ClassName}Service;
+import  ${packageName}.mapper.${ClassName}Mapper;
+import  ${packageName}.model.po.${ClassName};
+import  ${packageName}.model.bo.${ObjectParam};
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+##import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * ${functionName}Service业务层处理
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Service
+public class ${ClassName}ServiceImpl implements ${ClassName}Service {
+
+    @Autowired
+    private ${ClassName}Mapper baseMapper;
+
+    /**
+     * 查询${functionName}列表
+     */
+    @Override
+    public List<${ClassName}> queryList(${ObjectParam} param){
+        return  baseMapper.selectList(param);
+    }
+}

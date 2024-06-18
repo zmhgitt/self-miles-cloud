@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Annotation profile for miles-nacos" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/com/github/therapi/therapi-runtime-javadoc-scribe/0.15.0/therapi-runtime-javadoc-scribe-0.15.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/therapi/therapi-runtime-javadoc/0.15.0/therapi-runtime-javadoc-0.15.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/2.7.18/spring-boot-configuration-processor-2.7.18.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/github/linpeilie/mapstruct-plus-processor/1.3.5/mapstruct-plus-processor-1.3.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/github/linpeilie/mapstruct-plus/1.3.5/mapstruct-plus-1.3.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/cn/hutool/hutool-core/5.8.15/hutool-core-5.8.15.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/baidu/lbsyun/javapoet/1.9.0/javapoet-1.9.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
+        </processorPath>
+        <module name="miles-nacos" />
+      </profile>
+      <profile name="Annotation profile for miles-self" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/com/github/therapi/therapi-runtime-javadoc-scribe/0.15.0/therapi-runtime-javadoc-scribe-0.15.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/therapi/therapi-runtime-javadoc/0.15.0/therapi-runtime-javadoc-0.15.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/3.1.7/spring-boot-configuration-processor-3.1.7.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/github/linpeilie/mapstruct-plus-processor/1.3.5/mapstruct-plus-processor-1.3.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/github/linpeilie/mapstruct-plus/1.3.5/mapstruct-plus-1.3.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/cn/hutool/hutool-core/5.8.15/hutool-core-5.8.15.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/baidu/lbsyun/javapoet/1.9.0/javapoet-1.9.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
+        </processorPath>
+        <module name="miles-common-doc" />
+        <module name="miles-gen" />
+        <module name="miles-api-system" />
+        <module name="miles-common-web" />
+        <module name="miles-common-redis" />
+        <module name="miles-common-json" />
+        <module name="miles-common-dubbo" />
+        <module name="miles-common-satoken" />
+        <module name="miles-common-log" />
+        <module name="miles-common-mybatis" />
+        <module name="miles-common-antlr4" />
+        <module name="miles-system" />
+        <module name="miles-common-idempotent" />
+        <module name="miles-common-core" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="miles-api" options="" />
+      <module name="miles-api-system" options="-parameters" />
+      <module name="miles-common" options="" />
+      <module name="miles-common-alibaba-bom" options="" />
+      <module name="miles-common-antlr4" options="-parameters" />
+      <module name="miles-common-core" options="-parameters" />
+      <module name="miles-common-doc" options="-parameters" />
+      <module name="miles-common-dubbo" options="-parameters" />
+      <module name="miles-common-idempotent" options="-parameters" />
+      <module name="miles-common-json" options="-parameters" />
+      <module name="miles-common-log" options="-parameters" />
+      <module name="miles-common-mybatis" options="-parameters" />
+      <module name="miles-common-redis" options="-parameters" />
+      <module name="miles-common-satoken" options="-parameters" />
+      <module name="miles-common-web" options="-parameters" />
+      <module name="miles-gen" options="-parameters" />
+      <module name="miles-module" options="" />
+      <module name="miles-nacos" options="-parameters" />
+      <module name="miles-self" options="" />
+      <module name="miles-system" options="-parameters" />
+      <module name="miles-visual" options="" />
+    </option>
+  </component>
+</project>

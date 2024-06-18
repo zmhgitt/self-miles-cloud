@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "dubbo.custom",
+      "type": "self.miles.common.dubbo.properties.DubboCustomProperties",
+      "sourceType": "self.miles.common.dubbo.properties.DubboCustomProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "dubbo.custom.log-level",
+      "type": "self.miles.common.dubbo.enumd.RequestLogEnum",
+      "sourceType": "self.miles.common.dubbo.properties.DubboCustomProperties"
+    },
+    {
+      "name": "dubbo.custom.request-log",
+      "type": "java.lang.Boolean",
+      "sourceType": "self.miles.common.dubbo.properties.DubboCustomProperties"
+    }
+  ],
+  "hints": []
+}

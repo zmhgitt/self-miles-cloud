@@ -1,0 +1,78 @@
+#该配置仅作参数
+datasource:
+  master:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.76.228.57:3300/selfblog?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: miles
+
+
+--- #
+mybatis-plus:
+  # 不支持多包, 如有需要可在注解配置 或 提升扫包等级
+  # 例如 com.**.**.mapper
+  mapperPackage: self.miles.**.mapper
+  mapper-locations: classpath*:mappers/*.xml
+
+# Sa-Token配置
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: Authorization
+  # 开启内网服务调用鉴权(不允许越过gateway访问内网服务 保障服务安全)
+  check-same-token: true
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: false
+  # jwt秘钥
+  jwt-secret-key: abcdefghijklmnopqrstuvwxyz
+
+--- # redis 单机
+spring:
+  data:
+    redis:
+      host: 120.76.228.57
+      password: miles123
+      port: 6300
+      ssl:
+        enabled: false
+#  reids 集群(需要redis开启集群模式，测试可以通过指定不同端口开启集群和哨兵减少成本)
+#spring:
+#  data:
+#    redis:
+#      cluster:
+#        nodes:
+#          - 120.76.228.57:6300
+#      # 密码
+#      password: miles123
+#      # 连接超时时间
+#      timeout: 10s
+#      # 是否开启ssl
+#      ssl.enabled: false
+
+springdoc:
+  api-docs:
+    # 是否开启接口文档
+    enabled: true
+  #  swagger-ui:
+  #    # 持久化认证数据
+  #    persistAuthorization: true
+  info:
+    # 标题
+    title: '标题：接口文档'
+    # 描述
+    description: '描述：微服务权限管理系统, 具体包括XXX,XXX模块...'
+    # 版本
+    version: '版本号：系统版本...'
+  # 作者信息 (RuoYi)
+  contact:
+    name: Lion Li
+    email: crazylionli@163.com
+    url: https://gitee.com/dromara/RuoYi-Cloud-Plus
+  components:
+    # 鉴权方式配置
+    security-schemes:
+      apiKey:
+        type: APIKEY
+        in: HEADER
+        name: ${sa-token.token-name}

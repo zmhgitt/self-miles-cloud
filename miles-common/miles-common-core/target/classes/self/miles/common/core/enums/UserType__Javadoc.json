@@ -1,0 +1,1 @@
+{"doc":" @ClassName: UserType\n @Description: 类描述\n @author: Miles\n @date: 2024/6/5 15:47\n","fields":[],"enumConstants":[{"name":"SYS_USER","doc":" pc端\n"},{"name":"APP_USER","doc":" app端\n"}],"methods":[],"constructors":[]}

@@ -1,0 +1,74 @@
+package ${packageName}.controller;
+#set($ObjectParamSign=0)
+#foreach ($column in $columns)
+    #if($column.javaField.equals('departmentId'))
+        #set($ObjectParamSign=$ObjectParamSign+2)
+        #set($ObjectParam='DeptParam')
+    #elseif($column.javaField.equals('deptId'))
+        #set($ObjectParamSign=$ObjectParamSign+2)
+        #set($ObjectParam='DeptParam')
+    #elseif($column.javaField.equals('unitId'))
+        #set($ObjectParamSign=$ObjectParamSign+1)
+        #set($ObjectParam='UnitParam')
+    #else
+        #set($ObjectParam='SyncBaseParam')
+    #end
+#end
+#if($ObjectParamSign==1)
+    #set($ObjectParam='UnitParam')
+#elseif($ObjectParamSign==3)
+    #set($ObjectParam='DeptParam')
+#else
+    #set($ObjectParam='SyncBaseParam')
+#end
+import  ${packageName}.model.po.${ClassName};
+import  ${packageName}.model.bo.${ObjectParam};
+import ${packageName}.service.${ClassName}Service;
+
+import com.ares.jwxl.core.web.page.Groups;
+import com.ares.jwxl.core.web.page.PageUtil;
+import com.ares.jwxl.core.web.page.Result;
+import com.ares.jwxl.core.web.page.TableSupper;
+import com.ares.jwxl.log.enums.BusinessType;
+import com.ares.common.encrypt.annotation.ApiEncrypt;
+import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.RestController;
+import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * ${functionName}
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Api(tags = "${functionName}")
+@RestController
+@RequestMapping("/${businessName}")
+@Validated
+public class ${ClassName}Controller{
+
+    @Autowired
+    private ${ClassName}Service baseService;
+
+
+##    @SaCheckPermission("${permissionPrefix}:query")
+##    @Log(baseMapper="",type="list")  目前没有写@Log注解实现日志
+    @ApiOperation(value = "${functionName}列表")
+    @ApiOperationSupport(author = "${author}")
+    @ApiEncrypt
+    @PostMapping("/list")
+    public Result list(@RequestBody ${ObjectParam} param){
+        if (Objects.isNull(param.getTime())){
+            throw new RuntimeException("Time Is Null");
+        }
+        return Result.resultIns().success().data(baseService.queryList(param));
+    }
+}
+
+

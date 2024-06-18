@@ -1,0 +1,1 @@
+{"doc":" @ClassName: GenTableMapper\n @Description: 类描述\n @author: Miles\n @date: 2024/5/11 17:15\n","fields":[],"enumConstants":[],"methods":[{"name":"selectDbTableListByNames","paramTypes":["java.lang.String"],"doc":" 查询表信息\n @return\n"},{"name":"selectDbTableColumnsByName","paramTypes":["java.lang.String"],"doc":" 查询表列信息\n @return\n"}],"constructors":[]}
