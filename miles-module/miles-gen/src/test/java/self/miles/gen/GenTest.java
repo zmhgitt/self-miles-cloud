@@ -25,7 +25,7 @@ public class GenTest {
     public void gen() {
         genTableService.generatorCode("sys_oper_log",genTable -> {
             genTable.setTplCategory("crud");
-            genTable.setOut(1);
+//            genTable.setOut(1);
         });
     }
 

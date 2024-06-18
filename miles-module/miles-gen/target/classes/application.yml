@@ -1,9 +1,11 @@
 gen:
   author: Miles
-  packageName: self.miles.sys
+#  packageName: self.miles.sys
+  packageName: com.ares.jwxl.sync
   autoRemovePre: true
   tablePrefix: self
-  absolutePath: D:\workspace\com\miles-self\miles-module\miles-system
+#  absolutePath: D:\workspace\com\miles-self\miles-module\miles-system
+  absolutePath: D:\workspace\com\ares-boot\ares-modules\ares-jwxl-sync
 
 
 
