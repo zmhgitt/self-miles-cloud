@@ -3,6 +3,8 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/miles-api/miles-api-system/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-api/miles-api-system/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/miles-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/miles-auth/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-common/miles-common-antlr4/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-common/miles-common-antlr4/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-common/miles-common-core/src/main/java" charset="UTF-8" />
@@ -25,10 +27,16 @@
     <file url="file://$PROJECT_DIR$/miles-common/miles-common-satoken/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-common/miles-common-web/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-common/miles-common-web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/miles-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/miles-gateway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-module/miles-gen/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-module/miles-gen/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-module/miles-system/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-module/miles-system/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/miles-module/miles-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/miles-module/miles-test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/miles-study/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/miles-study/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-visual/miles-nacos/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/miles-visual/miles-nacos/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

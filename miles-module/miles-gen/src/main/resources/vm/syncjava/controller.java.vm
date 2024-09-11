@@ -21,25 +21,20 @@ package ${packageName}.controller;
 #else
     #set($ObjectParam='SyncBaseParam')
 #end
-import  ${packageName}.model.po.${ClassName};
-import  ${packageName}.model.bo.${ObjectParam};
-import ${packageName}.service.${ClassName}Service;
 
-import com.ares.jwxl.core.web.page.Groups;
-import com.ares.jwxl.core.web.page.PageUtil;
-import com.ares.jwxl.core.web.page.Result;
-import com.ares.jwxl.core.web.page.TableSupper;
-import com.ares.jwxl.log.enums.BusinessType;
+import  ${packageName}.model.bo.${ObjectParam};
+import ${packageName}.service.${ClassName}SyncService;
+
+import com.ares.common.core.model.Result;
 import com.ares.common.encrypt.annotation.ApiEncrypt;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.RestController;
-import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Objects;
 
 /**
  * ${functionName}
@@ -49,12 +44,12 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api(tags = "${functionName}")
 @RestController
-@RequestMapping("/${businessName}")
+@RequestMapping("/sync/${businessName}")
 @Validated
-public class ${ClassName}Controller{
+public class ${ClassName}SyncController{
 
     @Autowired
-    private ${ClassName}Service baseService;
+    private ${ClassName}SyncService baseService;
 
 
 ##    @SaCheckPermission("${permissionPrefix}:query")

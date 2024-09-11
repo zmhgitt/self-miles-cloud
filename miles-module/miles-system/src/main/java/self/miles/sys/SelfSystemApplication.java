@@ -1,5 +1,6 @@
 package self.miles.sys;
 
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +12,7 @@ import org.springframework.boot.context.metrics.buffering.BufferingApplicationSt
  * @author: Miles
  * @date: 2024/6/4 17:15
  */
+@EnableDubbo
 @SpringBootApplication
 public class SelfSystemApplication {
 

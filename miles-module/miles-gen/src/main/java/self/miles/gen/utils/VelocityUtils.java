@@ -105,49 +105,63 @@ public class VelocityUtils {
      *
      * @return 模板列表
      */
-//    public static List<String> getTemplateList(String tplCategory) {
-//        List<String> templates = new ArrayList<>();
-//        templates.add("vm/java/domain.java.vm");
-//        templates.add("vm/java/vo.java.vm");
-//        templates.add("vm/java/bo.java.vm");
-//        templates.add("vm/java/mapper.java.vm");
-//        templates.add("vm/java/service.java.vm");
-//        templates.add("vm/java/serviceImpl.java.vm");
-//        templates.add("vm/java/controller.java.vm");
-//        templates.add("vm/xml/mapper.xml.vm");
-//////        if (DataBaseHelper.isOracle()) {
-//////            templates.add("vm/sql/oracle/sql.vm");
-//////        } else if (DataBaseHelper.isPostgerSql()) {
-//////            templates.add("vm/sql/postgres/sql.vm");
-//////        } else {
-//////
-//////        }
-////        templates.add("vm/sql/sql.vm");
-////        templates.add("vm/ts/api.ts.vm");
-////        templates.add("vm/ts/types.ts.vm");
-////        if (GenConstants.TPL_CRUD.equals(tplCategory)) {
-////            templates.add("vm/vue/index.vue.vm");
-////        } else if (GenConstants.TPL_TREE.equals(tplCategory)) {
-////            templates.add("vm/vue/index-tree.vue.vm");
-////        }
-//        return templates;
-//    }
-
-    /**
-     * 获取模板信息
-     *
-     * @return 模板列表
-     */
-    public static List<String> getTemplateList(String tplCategory) {
+    public static List<String> getTemplateList(String tplCategory,String sys) {
         List<String> templates = new ArrayList<>();
-        templates.add("vm/syncjava/po.java.vm");
-        templates.add("vm/syncjava/mapper.java.vm");
-        templates.add("vm/syncjava/service.java.vm");
-        templates.add("vm/syncjava/serviceImpl.java.vm");
-        templates.add("vm/syncjava/controller.java.vm");
-        templates.add("vm/syncjava/mapper.xml.vm");
+        if (Objects.isNull(sys) || GenConstants.SYS_SELF.equals(sys)){
+            templates.add("vm/java/domain.java.vm");
+            templates.add("vm/java/vo.java.vm");
+            templates.add("vm/java/bo.java.vm");
+            templates.add("vm/java/mapper.java.vm");
+            templates.add("vm/java/service.java.vm");
+            templates.add("vm/java/serviceImpl.java.vm");
+            templates.add("vm/java/controller.java.vm");
+            templates.add("vm/xml/mapper.xml.vm");
+            templates.add("vm/sql/model.sql.vm");
+////        if (DataBaseHelper.isOracle()) {
+////            templates.add("vm/sql/oracle/sql.vm");
+////        } else if (DataBaseHelper.isPostgerSql()) {
+////            templates.add("vm/sql/postgres/sql.vm");
+////        } else {
+////
+////        }
+//        templates.add("vm/sql/sql.vm");
+//        templates.add("vm/ts/api.ts.vm");
+//        templates.add("vm/ts/types.ts.vm");
+//        if (GenConstants.TPL_CRUD.equals(tplCategory)) {
+//            templates.add("vm/vue/index.vue.vm");
+//        } else if (GenConstants.TPL_TREE.equals(tplCategory)) {
+//            templates.add("vm/vue/index-tree.vue.vm");
+//        }
+        }else if (GenConstants.SYS_ARES.equals(sys)){
+            templates.add("vm2/java/domain.java.vm");
+            templates.add("vm2/java/vo.java.vm");
+            templates.add("vm2/java/bo.java.vm");
+            templates.add("vm2/java/mapper.java.vm");
+            templates.add("vm2/java/service.java.vm");
+            templates.add("vm2/java/serviceImpl.java.vm");
+            templates.add("vm2/java/controller.java.vm");
+            templates.add("vm2/xml/mapper.xml.vm");
+            templates.add("vm2/sql/model.sql.vm");
+        }
+
         return templates;
     }
+
+//    /**
+//     * 获取模板信息  jwxl sync的代码生成 跟自身项目无关
+//     *
+//     * @return 模板列表
+//     */
+//    public static List<String> getTemplateList(String tplCategory) {
+//        List<String> templates = new ArrayList<>();
+//        templates.add("vm/syncjava/domain.java.vm");
+//        templates.add("vm/syncjava/mapper.java.vm");
+//        templates.add("vm/syncjava/service.java.vm");
+//        templates.add("vm/syncjava/serviceImpl.java.vm");
+//        templates.add("vm/syncjava/controller.java.vm");
+//        templates.add("vm/syncjava/mapper.xml.vm");
+//        return templates;
+//    }
 
     /**
      * 获取文件名
@@ -225,8 +239,8 @@ public class VelocityUtils {
             if (!column.isSuperColumn() && GenConstants.TYPE_DATE.equals(column.getJavaType())) {
                 importList.add("java.util.Date");
 //                importList.add("com.fasterxml.jackson.annotation.JsonFormat");
-                importList.add("com.alibaba.fastjson.annotation.JSONField");
-                importList.add("org.springframework.format.annotation.DateTimeFormat");
+//                importList.add("com.alibaba.fastjson.annotation.JSONField");
+//                importList.add("org.springframework.format.annotation.DateTimeFormat");
             } else if (!column.isSuperColumn() && GenConstants.TYPE_BIGDECIMAL.equals(column.getJavaType())) {
                 importList.add("java.math.BigDecimal");
             }

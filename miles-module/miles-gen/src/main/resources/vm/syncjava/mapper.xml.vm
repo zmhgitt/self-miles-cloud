@@ -1,52 +1,53 @@
 #set($ObjectParamSign=0)
-#foreach ($column in $columns)
-    #if($column.javaField.equals('departmentId'))
-        #set($ObjectParamSign=$ObjectParamSign+2)
-        #set($ObjectParam='DeptParam')
-    #elseif($column.javaField.equals('deptId'))
-        #set($ObjectParamSign=$ObjectParamSign+2)
-        #set($ObjectParam='DeptParam')
-    #elseif($column.javaField.equals('unitId'))
-        #set($ObjectParamSign=$ObjectParamSign+1)
+    #foreach ($column in $columns)
+        #if($column.javaField.equals('departmentId'))
+            #set($ObjectParamSign=$ObjectParamSign+2)
+            #set($ObjectParam='DeptParam')
+        #elseif($column.javaField.equals('deptId'))
+            #set($ObjectParamSign=$ObjectParamSign+2)
+            #set($ObjectParam='DeptParam')
+        #elseif($column.javaField.equals('unitId'))
+            #set($ObjectParamSign=$ObjectParamSign+1)
+            #set($ObjectParam='UnitParam')
+        #else
+            #set($ObjectParam='SyncBaseParam')
+        #end
+    #end
+    #if($ObjectParamSign==1)
         #set($ObjectParam='UnitParam')
+    #elseif($ObjectParamSign==3)
+        #set($ObjectParam='DeptParam')
     #else
         #set($ObjectParam='SyncBaseParam')
     #end
-#end
-#if($ObjectParamSign==1)
-    #set($ObjectParam='UnitParam')
-#elseif($ObjectParamSign==3)
-    #set($ObjectParam='DeptParam')
-#else
-    #set($ObjectParam='SyncBaseParam')
-#end
-#foreach ($column in $columns)
-    #if($column.javaField.equals('addtime'))
-        #set($timeParam='addtime')
-    #elseif($column.javaField.equals('updateTime'))
-        #set($timeParam='update_time')
+    #foreach ($column in $columns)
+        #if($column.javaField.equals('addtime'))
+            #set($timeParam='addtime')
+        #elseif($column.javaField.equals('updateTime'))
+            #set($timeParam='update_time')
+        #end
     #end
-#end
-${timeParam}
+#set($unitId='unit_id')
+#set($deptId='department_id')
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="${packageName}.mapper.${ClassName}Mapper">
+<mapper namespace="${packageName}.mapper.${ClassName}SyncMapper">
 
-    ##    <!-- 没有开启自动转驼峰，目前转驼峰配置是注释的，写一个ResultMap进行转换，之后转vo类也方便-->
-    <resultMap type="${packageName}.model.${ClassName}" id="${ClassName}Result">
-        #foreach ($column in $columns)
-            #if($column.isPk==1)
-                <id property="$column.columnName" column="$column.columnName" />
-            #else
-                <result property="$column.columnName" column="$column.columnName"/>
-            #end
-        #end
+##    <!-- 没有开启自动转驼峰，目前转驼峰配置是注释的，写一个ResultMap进行转换，之后转vo类也方便-->
+    <resultMap type="${packageName}.model.po.${ClassName}" id="${ClassName}Result">
+    #foreach ($column in $columns)
+    #if($column.isPk==1)
+        <id property="$column.columnName" column="$column.columnName" />
+    #else
+        <result property="$column.columnName" column="$column.columnName"/>
+    #end
+    #end
     </resultMap>
 
     <sql id="select${ClassName}">
-            ## 去除最后一个逗号
+## 去除最后一个逗号
             #set($selectStr = "")
             #foreach ($column in $columns)
                 #set($selectStr = $selectStr+$table.getFirstWordByClass()+"."+$column.columnName+", ")
@@ -57,29 +58,31 @@ ${timeParam}
     </sql>
 
 
-    <select id="selectList" parameterType="${packageName}.model.bo.${ClassName}" resultMap="${ClassName}Result">
+    <select id="selectList" parameterType="${packageName}.model.bo.${ObjectParam}" resultMap="${ClassName}Result">
         <include refid="select${ClassName}"></include>
         <where>
-            todo: 请检查参数是否正确
-            #if($timeParam)
-                <if test="time != null">
-                    and $table.getFirstWordByClass().${timeParam} > #{time}
-                </if>
-            #else
-                todo: 时间字段必须需要
-            #end
-            #if($ObjectParamSign==3)
-                <if test="departmentId != null">
-                    and $table.getFirstWordByClass().department_id = #{departmentId}
-                </if>
-                <if test="unitId != null">
-                    and $table.getFirstWordByClass().unit_id = #{unitId}
-                </if>
-            #elseif($ObjectParamSign==1)
-                <if test="unitId != null">
-                    and $table.getFirstWordByClass().unit_id = #{unitId}
-                </if>
-            #end
+        todo: 请检查参数是否正确
+        #if($timeParam)
+            <if test="time != null">
+                and $table.getFirstWordByClass().${timeParam} > #{time}
+            </if>
+        #else
+            <if test="time != null">
+                and u.todo: 时间字段必须需要 > #{time}
+            </if>
+        #end
+        #if($ObjectParamSign==3)
+            <if test="departmentId != null">
+                and $table.getFirstWordByClass().${deptId} = #{departmentId}
+            </if>
+            <if test="unitId != null">
+                and $table.getFirstWordByClass().${unitId} = #{unitId}
+            </if>
+        #elseif($ObjectParamSign==1)
+            <if test="unitId != null">
+                and $table.getFirstWordByClass().${unitId} = #{unitId}
+            </if>
+        #end
         </where>
     </select>
 </mapper>

@@ -279,8 +279,12 @@ public class GenTableColumn {
         return isQuery;
     }
 
+//    public static boolean isSuperColumn(String javaField) {
+//         // 暂时没有需要保存到数据库的父级Field
+//        return false;
+//    }
     public static boolean isSuperColumn(String javaField) {
-         // 暂时没有需要保存到数据库的父级Field
+        // 暂时没有需要保存到数据库的父级Field
         return StringUtils.equalsAnyIgnoreCase(javaField,
                 // BaseEntity
                 "createBy", "createTime", "updateBy", "updateTime",

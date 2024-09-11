@@ -148,6 +148,12 @@ public class GenTable {
      */
     private Integer sign;
 
+    /**
+     * 系统模板(兼容下其他模板。可以做成enum。)
+     */
+    private String sys;
+
+
     public String getDataName() {
         return dataName;
     }
@@ -366,5 +372,13 @@ public class GenTable {
     // 由于过滤已经存在父级的基类字段
     public static boolean isSuperColumn(String tplCategory, String javaField) {
         return StringUtils.equalsAnyIgnoreCase(javaField, GenConstants.BASE_ENTITY);
+    }
+
+    public String getSys() {
+        return sys;
+    }
+
+    public void setSys(String sys) {
+        this.sys = sys;
     }
 }

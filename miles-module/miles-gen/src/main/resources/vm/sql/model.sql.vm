@@ -1,0 +1,21 @@
+##    <!-- 没有开启自动转驼峰，目前转驼峰配置是注释的，写一个ResultMap进行转换，之后转vo类也方便-->
+<resultMap type="${packageName}.model.${ClassName}" id="${ClassName}Result">
+ #foreach ($column in $columns)
+ #if($column.isPk==1)
+     <id property="$column.javaField" column="$column.columnName" />
+ #else
+     <result property="$column.javaField" column="$column.columnName"/>
+ #end
+ #end
+</resultMap>
+
+<sql id="select${ClassName}">
+## 去除最后一个逗号
+    #set($selectStr = "")
+    #foreach ($column in $columns)
+        #set($selectStr = $selectStr+$table.getFirstWordByClass()+"."+$column.columnName+", ")
+    #end
+        #set($selectStr = $selectStr.substring(0,$selectStr.lastIndexOf(',')))
+    select ${selectStr}
+    from $table.tableName $table.getFirstWordByClass()
+</sql>

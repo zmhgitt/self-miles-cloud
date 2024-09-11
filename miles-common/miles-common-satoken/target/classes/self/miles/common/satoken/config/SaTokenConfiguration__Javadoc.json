@@ -1,1 +1,0 @@
-{"doc":" @ClassName: SaTokenConfiguration\n @Description: 类描述\n @author: Miles\n @date: 2024/6/4 16:14\n","fields":[],"enumConstants":[],"methods":[{"name":"stpInterface","paramTypes":[],"doc":" 权限接口实现(使用bean注入方便用户替换)\n"},{"name":"saTokenDao","paramTypes":[],"doc":" 自定义dao层存储\n"}],"constructors":[]}

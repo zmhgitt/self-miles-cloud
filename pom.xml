@@ -13,6 +13,9 @@
         <module>miles-module</module>
         <module>miles-api</module>
         <module>miles-visual</module>
+        <module>miles-gateway</module>
+        <module>miles-auth</module>
+        <module>miles-study</module>
     </modules>
 
     <properties>
@@ -49,6 +52,9 @@
             <id>dev</id>
             <properties>
                 <profiles.active>dev</profiles.active>
+                <nacos.server>localhost:8848</nacos.server>
+                <nacos.discovery.group>DEFAULT_GROUP</nacos.discovery.group>
+                <nacos.config.group>DEFAULT_GROUP</nacos.config.group>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -239,6 +245,11 @@
             <dependency>
                 <groupId>self.miles</groupId>
                 <artifactId>miles-common-doc</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>self.miles</groupId>
+                <artifactId>miles-api-system</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>

@@ -36,21 +36,21 @@ public class ${ClassName}Vo implements Serializable {
     /**
      * $column.columnComment
      */
-#set($parentheseIndex=$column.columnComment.indexOf("（"))
-#if($parentheseIndex != -1)
-#set($comment=$column.columnComment.substring(0, $parentheseIndex))
-#else
-#set($comment=$column.columnComment)
-#end
-#if(${column.dictType} && ${column.dictType} != '')
+###set($parentheseIndex=$column.columnComment.indexOf("（"))
+###if($parentheseIndex != -1)
+###set($comment=$column.columnComment.substring(0, $parentheseIndex))
+###else
+###set($comment=$column.columnComment)
+###end
+###if(${column.dictType} && ${column.dictType} != '')
 ##    @ExcelProperty(value = "${comment}", converter = ExcelDictConvert.class)
 ##    @ExcelDictFormat(dictType = "${column.dictType}")
-#elseif($parentheseIndex != -1)
+###elseif($parentheseIndex != -1)
 ##    @ExcelProperty(value = "${comment}", converter = ExcelDictConvert.class)
 ##    @ExcelDictFormat(readConverterExp = "$column.readConverterExp()")
-#else
+###else
 ##    @ExcelProperty(value = "${comment}")
-#end
+###end
     private $column.javaType $column.javaField;
 
 #end

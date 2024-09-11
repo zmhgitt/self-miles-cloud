@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 //import self.miles.common.redis.utils.RedisUtils;
+import self.miles.gen.constant.GenConstants;
 import self.miles.gen.service.IGenTableService;
 
 import java.io.IOException;
@@ -23,9 +24,19 @@ public class GenTest {
 
     @Test
     public void gen() {
-        genTableService.generatorCode("sys_oper_log",genTable -> {
+        genTableService.generatorCode("sys_user",genTable -> {
             genTable.setTplCategory("crud");
 //            genTable.setOut(1);
+        });
+    }
+
+    // video_sign  study  topic  subject  test  question questionbank
+    @Test
+    public void ares() {
+        genTableService.generatorCode("client_info",genTable -> {
+            genTable.setTplCategory("crud");
+            genTable.setSys(GenConstants.SYS_ARES);
+            genTable.setOut(1);
         });
     }
 

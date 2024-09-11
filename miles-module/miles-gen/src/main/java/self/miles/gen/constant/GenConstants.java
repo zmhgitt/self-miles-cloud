@@ -185,4 +185,13 @@ public class GenConstants {
      * 需要
      */
     public static String REQUIRE = "1";
+
+    /**
+     * GenTable  sys 属性值
+     */
+    public static String SYS_ARES = "ares";
+    /**
+     * GenTable  sys 属性值
+     */
+    public static String SYS_SELF = "self";
 }

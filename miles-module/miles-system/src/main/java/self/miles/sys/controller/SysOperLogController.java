@@ -22,8 +22,8 @@ import self.miles.sys.service.ISysOperLogService;
 import self.miles.common.mybatis.core.page.TableDataInfo;
 
 /**
- * 操作日志记录
- * 前端访问路由地址为:/sys/operLog
+ * 操作日志
+ * 前端访问路由地址为:/system/operLog
  *
  * @author Miles
  * @date 2024-06-05 17:51:52

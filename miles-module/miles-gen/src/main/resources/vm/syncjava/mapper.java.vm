@@ -42,7 +42,7 @@ import java.util.List;
  */
 ## @Mapper 可要可不要 目前没有集成mybatis plus,这些常用的crud可以写一个BaseMapper封装起来，这样Mapper只需关注业务逻辑
 ##@Mapper
-public interface ${ClassName}Mapper{
+public interface ${ClassName}SyncMapper{
 
     /**
      * 查询${functionName}列表

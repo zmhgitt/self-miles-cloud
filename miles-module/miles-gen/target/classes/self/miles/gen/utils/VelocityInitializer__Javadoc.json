@@ -1,1 +1,0 @@
-{"doc":" @ClassName: VelocityInitializer\n @Description: 类描述\n @author: Miles\n @date: 2024/5/11 17:45\n","fields":[],"enumConstants":[],"methods":[{"name":"initVelocity","paramTypes":[],"doc":" 初始化vm方法\n"}],"constructors":[]}

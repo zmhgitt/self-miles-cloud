@@ -1,12 +1,42 @@
+#gen:
+#  author: Miles
+#  packageName: self.miles.sys
+##  packageName: com.ares.jwxl.sync
+##  packageName: com.ares.jwxl.sync
+#  autoRemovePre: false
+#  tablePrefix: sys
+#  absolutePath: D:\workspace\com\miles-self\miles-module\miles-system
+##  absolutePath: D:\workspace\com\ares-boot\ares-modules\ares-jwxl-sync
+##  absolutePath: D:\workspace\com\ares-boot\ares-modules\ares-jwxl-sync
+
+##sys
+#gen:
+#  author: Miles
+#    packageName: com.ares.jwxl.sync
+#    autoRemovePre: false
+#    tablePrefix: sys
+#    absolutePath: D:\workspace\com\ares-boot\ares-modules\ares-jwxl-sync
+
+#ares
+#gen:
+#  author: Miles
+#  packageName: com.ares.cauth
+#  autoRemovePre: true
+#  tablePrefix: jwxl
+##  absolutePath: D:\workspace\com\Ares-MIS\ares-module\ares-resource
+##  absolutePath: D:\workspace\com\Ares-MIS\ares-module\ares-study
+#  absolutePath: D:\workspace\com\Ares-MIS\ares-module\ares-cauth
+
+
+#ares
 gen:
   author: Miles
-#  packageName: self.miles.sys
-  packageName: com.ares.jwxl.sync
-  autoRemovePre: true
-  tablePrefix: self
-#  absolutePath: D:\workspace\com\miles-self\miles-module\miles-system
-  absolutePath: D:\workspace\com\ares-boot\ares-modules\ares-jwxl-sync
-
+  packageName: com.ares.study.app
+  autoRemovePre: false
+  tablePrefix: jwxl
+  #  absolutePath: D:\workspace\com\Ares-MIS\ares-module\ares-resource
+  absolutePath: D:\workspace\com\Ares-MIS\ares-module\ares-study-app
+#  absolutePath: D:\workspace\com\Ares-MIS\ares-module\ares-cauth
 
 
 # Tomcat
@@ -23,16 +53,25 @@ spring:
   datasource:
     dynamic:
       datasource:
-        # todo: 修改数据库明文
-        master:
+#        master:
+#          driverClassName: com.mysql.cj.jdbc.Driver
+#          url: jdbc:mysql://120.76.228.57:3300/selfblog?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#          username: root
+#          password: miles
+        slave:
           driverClassName: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://120.76.228.57:3300/selfblog?useUnicode=true&characterEncoding=utf-8&useSSL=false
+          url: jdbc:mysql://miles:3306/scene_video?useUnicode=true&characterEncoding=utf-8&useSSL=false
           username: root
           password: miles
-      primary: master
+        slave2:
+          driverClassName: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://miles:3306/ares_sys?useUnicode=true&characterEncoding=utf-8&useSSL=false
+          username: root
+          password: miles
+      primary: slave
 mybatis-plus:
   mapper-package: self.miles.**.mapper
-  mapper-locations: classpath*:mappers/*.xml
+  mapper-locations: classpath*:mapper/*.xml
 
 --- # 不输出日志
 logging:

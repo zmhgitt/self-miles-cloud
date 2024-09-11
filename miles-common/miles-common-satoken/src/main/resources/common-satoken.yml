@@ -15,4 +15,4 @@ sa-token:
   #(但防止跨域 ，无法防止别人内嵌网页（前端配置禁止内嵌），或者点击链接直接跳转新标签（target），而新标签链接是你给他转账1o块钱。。。)
   is-read-cookie: false
   # token前缀
-  token-prefix: "Bearer"
+  token-prefix: "Driver"

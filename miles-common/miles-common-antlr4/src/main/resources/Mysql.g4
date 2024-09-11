@@ -70,7 +70,7 @@ signed_number: DIGIT+;
 string: STRING;
 asc_desc: 'ASC' | 'DESC';
 conflict_clause: 'ON DELETE CASCADE' | 'ON UPDATE CASCADE' | 'ON DELETE SET NULL' | 'ON UPDATE SET NULL';
-update_clause: 'ON UPDATE CURRENT_TIMESTAMP';
+update_clause: 'ON UPDATE CURRENT_TIMESTAMP' | 'CURRENT_TIMESTAMP';
 
 expr: ANYDL ('>'|'<'|ASSIGN) DIGIT;
 

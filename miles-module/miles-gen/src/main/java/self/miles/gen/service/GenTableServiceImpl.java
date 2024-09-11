@@ -64,7 +64,7 @@ public class GenTableServiceImpl implements IGenTableService {
         VelocityContext context = VelocityUtils.prepareContext(table);
 
         // 获取模板列表
-        List<String> templates = VelocityUtils.getTemplateList(table.getTplCategory());
+        List<String> templates = VelocityUtils.getTemplateList(table.getTplCategory(),table.getSys());
         for (String template : templates) {
             // 渲染模板
             StringWriter sw = new StringWriter();
@@ -77,9 +77,10 @@ public class GenTableServiceImpl implements IGenTableService {
             switch (table.getOut()){
                 case 1,2 :{
                     toFile(table,dataMap);
+                    break;
                 }
                 default:{
-//                    toControllerLog(dataMap);
+                    toControllerLog(dataMap);
                 }
             }
         }else{
@@ -110,8 +111,8 @@ public class GenTableServiceImpl implements IGenTableService {
         final String packName = File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + genTable.getPackageName().replace(".",File.separator);
         final String resource = File.separator + "src" + File.separator + "main" + File.separator + "resources";
         dataMap.forEach((k,v)->{
-            switch (k){
-                case "vm/java/vo.java.vm":{
+            switch (k.substring(k.indexOf("/") + 1)) {
+                case "java/vo.java.vm" -> {
                     String path = genTable.getAbsolutePath()
                             + packName
                             + File.separator
@@ -120,10 +121,10 @@ public class GenTableServiceImpl implements IGenTableService {
                             + genTable.getClassName()
                             + "Vo.java";
                     consoleLog(path);
-                    writeFile(path,v,genTable);
+                    writeFile(path, v, genTable);
                     break;
                 }
-                case "vm/java/domain.java.vm":{
+                case "java/domain.java.vm" -> {
                     String path = genTable.getAbsolutePath()
                             + packName
                             + File.separator
@@ -132,10 +133,10 @@ public class GenTableServiceImpl implements IGenTableService {
                             + genTable.getClassName()
                             + ".java";
                     consoleLog(path);
-                    writeFile(path,v,genTable);
+                    writeFile(path, v, genTable);
                     break;
                 }
-                case "vm/java/bo.java.vm":{
+                case "java/bo.java.vm" -> {
                     String path = genTable.getAbsolutePath()
                             + packName
                             + File.separator
@@ -144,10 +145,10 @@ public class GenTableServiceImpl implements IGenTableService {
                             + genTable.getClassName()
                             + "Bo.java";
                     consoleLog(path);
-                    writeFile(path,v,genTable);
+                    writeFile(path, v, genTable);
                     break;
                 }
-                case "vm/java/mapper.java.vm":{
+                case "java/mapper.java.vm" -> {
                     String path = genTable.getAbsolutePath()
                             + packName
                             + File.separator
@@ -155,10 +156,10 @@ public class GenTableServiceImpl implements IGenTableService {
                             + genTable.getClassName()
                             + "Mapper.java";
                     consoleLog(path);
-                    writeFile(path,v,genTable);
+                    writeFile(path, v, genTable);
                     break;
                 }
-                case "vm/java/service.java.vm":{
+                case "java/service.java.vm" -> {
                     String path = genTable.getAbsolutePath()
                             + packName
                             + File.separator
@@ -167,10 +168,10 @@ public class GenTableServiceImpl implements IGenTableService {
                             + genTable.getClassName()
                             + "Service.java";
                     consoleLog(path);
-                    writeFile(path,v,genTable);
+                    writeFile(path, v, genTable);
                     break;
                 }
-                case "vm/java/serviceImpl.java.vm":{
+                case "java/serviceImpl.java.vm" -> {
                     String path = genTable.getAbsolutePath()
                             + packName
                             + File.separator
@@ -179,10 +180,10 @@ public class GenTableServiceImpl implements IGenTableService {
                             + genTable.getClassName()
                             + "ServiceImpl.java";
                     consoleLog(path);
-                    writeFile(path,v,genTable);
+                    writeFile(path, v, genTable);
                     break;
                 }
-                case "vm/java/controller.java.vm":{
+                case "java/controller.java.vm" -> {
                     String path = genTable.getAbsolutePath()
                             + packName
                             + File.separator
@@ -190,23 +191,109 @@ public class GenTableServiceImpl implements IGenTableService {
                             + genTable.getClassName()
                             + "Controller.java";
                     consoleLog(path);
-                    writeFile(path,v,genTable);
+                    writeFile(path, v, genTable);
                     break;
                 }
-                case "vm/xml/mapper.xml.vm":{
+                case "xml/mapper.xml.vm" -> {
                     String path = genTable.getAbsolutePath()
                             + resource
                             + File.separator
-                            + "mappers" + File.separator
+                            + "mapper" + File.separator
                             + genTable.getClassName()
                             + "Mapper.xml";
                     consoleLog(path);
-                    writeFile(path,v,genTable);
+                    writeFile(path, v, genTable);
                     break;
+                }
+                default -> {
+                    consoleLog(v);
                 }
             }
         });
     }
+
+//    /**
+//     *   jwxl sync的代码生成 跟自身项目无关
+//     * @param genTable
+//     * @param dataMap
+//     */
+//    private void toFile(GenTable genTable,Map<String, String> dataMap){
+//        final String packName = File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + genTable.getPackageName().replace(".",File.separator);
+//        final String resource = File.separator + "src" + File.separator + "main" + File.separator + "resources";
+//        dataMap.forEach((k,v)->{
+//            switch (k){
+//                case "vm/syncjava/domain.java.vm":{
+//                    String path = genTable.getAbsolutePath()
+//                            + packName
+//                            + File.separator
+////                            + "domain" + File.separator + "po"
+//                            + "model" + File.separator + "po"
+//                            + File.separator
+//                            + genTable.getClassName()
+//                            + ".java";
+//                    consoleLog(path);
+//                    writeFile(path,v,genTable);
+//                    break;
+//                }
+//                case "vm/syncjava/mapper.java.vm":{
+//                    String path = genTable.getAbsolutePath()
+//                            + packName
+//                            + File.separator
+//                            + "mapper" + File.separator
+//                            + genTable.getClassName()
+//                            + "SyncMapper.java";
+//                    consoleLog(path);
+//                    writeFile(path,v,genTable);
+//                    break;
+//                }
+//                case "vm/syncjava/service.java.vm":{
+//                    String path = genTable.getAbsolutePath()
+//                            + packName
+//                            + File.separator
+//                            + "service" + File.separator
+//                            + genTable.getClassName()
+//                            + "SyncService.java";
+//                    consoleLog(path);
+//                    writeFile(path,v,genTable);
+//                    break;
+//                }
+//                case "vm/syncjava/serviceImpl.java.vm":{
+//                    String path = genTable.getAbsolutePath()
+//                            + packName
+//                            + File.separator
+//                            + "service" + File.separator + "impl"
+//                            + File.separator
+//                            + genTable.getClassName()
+//                            + "SyncServiceImpl.java";
+//                    consoleLog(path);
+//                    writeFile(path,v,genTable);
+//                    break;
+//                }
+//                case "vm/syncjava/controller.java.vm":{
+//                    String path = genTable.getAbsolutePath()
+//                            + packName
+//                            + File.separator
+//                            + "controller" + File.separator
+//                            + genTable.getClassName()
+//                            + "SyncController.java";
+//                    consoleLog(path);
+//                    writeFile(path,v,genTable);
+//                    break;
+//                }
+//                case "vm/syncjava/mapper.xml.vm":{
+//                    String path = genTable.getAbsolutePath()
+//                            + resource
+//                            + File.separator
+//                            + "mapper" + File.separator
+//                            + genTable.getClassName()
+//                            + "SyncMapper.xml";
+//                    consoleLog(path);
+//                    writeFile(path,v,genTable);
+//                    break;
+//                }
+//            }
+//        });
+//    }
 
     private void toControllerLog(Map<String, String> dataMap){
         //目前只支持 控制台输出(需要其他输出方式可以拓展)

@@ -1,6 +1,0 @@
-self\miles\common\mybatis\config\MybatisPlusConfiguration.class
-self\miles\common\mybatis\core\domain\BaseEntity.class
-self\miles\common\mybatis\fill\MetaObjectFiller.class
-self\miles\common\mybatis\core\mapper\BaseMapperPlus.class
-self\miles\common\mybatis\core\page\PageQuery.class
-self\miles\common\mybatis\core\page\TableDataInfo.class

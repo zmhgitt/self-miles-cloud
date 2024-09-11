@@ -1,1 +1,0 @@
-{"doc":" @ClassName: RoleDTO\n @Description: 类描述\n @author: Miles\n @date: 2024/6/5 15:39\n","fields":[{"name":"roleId","doc":" 角色ID\n"},{"name":"roleName","doc":" 角色名称\n"},{"name":"roleKey","doc":" 角色权限\n"},{"name":"dataScope","doc":" 数据范围（1：所有数据权限；2：自定义数据权限；3：仅本人数据权限）\n"}],"enumConstants":[],"methods":[],"constructors":[]}

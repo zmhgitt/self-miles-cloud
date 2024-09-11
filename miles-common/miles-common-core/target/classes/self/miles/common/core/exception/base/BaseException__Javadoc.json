@@ -1,1 +1,1 @@
-{"doc":" @ClassName: BaseException\n @Description: 类描述\n @author: Miles\n @date: 2024/5/31 11:06\n","fields":[{"name":"code","doc":" 错误码\n"},{"name":"message","doc":" 错误消息\n"}],"enumConstants":[],"methods":[],"constructors":[]}
+{"doc":" @ClassName: BaseException\n @Description: 类描述\n @author: Miles\n @date: 2024/5/31 11:06\n","fields":[{"name":"code","doc":" 错误码\n"},{"name":"args","doc":" 错误码对应的参数\n"},{"name":"message","doc":" 错误消息\n"}],"enumConstants":[],"methods":[],"constructors":[]}

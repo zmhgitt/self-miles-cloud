@@ -8,20 +8,19 @@ spring:
   profiles:
     # 环境配置
     active: @profiles.active@
-  datasource:
-    dynamic:
-      datasource:
-        master:
-          driverClassName: com.mysql.cj.jdbc.Driver
-          url: ${datasource.master.url}
-          username: ${datasource.master.username}
-          password: ${datasource.master.password}
-      primary: master
-mybatis-plus:
-  mapper-package: self.miles.**.mapper
-  mapper-locations: classpath*:mappers/*.xml
---- #todo: 使用nacos后删除
-spring:
+  cloud:
+    nacos:
+      server-addr: @nacos.server@
+      discovery:
+        group: @nacos.discovery.group@
+        namespace: ${spring.profiles.active}
+      config:
+        group: @nacos.config.group@
+        namespace: ${spring.profiles.active}
+        file-extension: yml
   config:
-    import: D:\workspace\com\miles-self\config\application-common.yml
-#    import: classpath:config/application-common.yml
+    import:
+      - optional:nacos:${spring.application.name}.yml
+      - optional:nacos:application-common.yml
+      - optional:nacos:datasource.yml
+

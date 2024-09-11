@@ -1,0 +1,45 @@
+package ${packageName}.model.po;
+
+#foreach ($import in $importList)
+import ${import};
+#end
+
+/**
+ * ${functionName}对象 ${tableName}
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+public class ${ClassName}{
+
+##@Serial
+##private static final long serialVersionUID = 1L;
+
+#foreach ($column in $columns)
+    /**
+     * $column.columnComment
+     */
+##暂时没有写version控制用户重复点击
+        #if($column.javaField=='version')
+        @Version
+        #end
+##MybatisPlus 其他并没有引入@TableId
+## #if($column.isPk==1)
+## @TableId(value = "$column.columnName")
+## #end
+    #if($column.javaType=='Date')
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    #end
+    private $column.javaType $column.columnName;
+#end
+## 无Lombok插件 需要 getter setting
+#foreach ($column in $columns)
+    public void set$column.firstCase($column.columnName)($column.javaType $column.columnName){
+        this.$column.columnName = $column.columnName;
+    }
+
+    public $column.javaType get$column.firstCase($column.columnName)(){
+        return $column.columnName;
+    }
+#end
+}

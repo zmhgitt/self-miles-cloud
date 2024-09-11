@@ -45,15 +45,19 @@
         <module name="miles-gen" />
         <module name="miles-api-system" />
         <module name="miles-common-web" />
+        <module name="miles-auth" />
         <module name="miles-common-redis" />
         <module name="miles-common-json" />
+        <module name="miles-study" />
         <module name="miles-common-dubbo" />
         <module name="miles-common-satoken" />
-        <module name="miles-common-log" />
         <module name="miles-common-mybatis" />
+        <module name="miles-common-log" />
         <module name="miles-common-antlr4" />
         <module name="miles-system" />
         <module name="miles-common-idempotent" />
+        <module name="miles-test" />
+        <module name="miles-gateway" />
         <module name="miles-common-core" />
       </profile>
     </annotationProcessing>
@@ -62,6 +66,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="miles-api" options="" />
       <module name="miles-api-system" options="-parameters" />
+      <module name="miles-auth" options="-parameters" />
       <module name="miles-common" options="" />
       <module name="miles-common-alibaba-bom" options="" />
       <module name="miles-common-antlr4" options="-parameters" />
@@ -75,11 +80,14 @@
       <module name="miles-common-redis" options="-parameters" />
       <module name="miles-common-satoken" options="-parameters" />
       <module name="miles-common-web" options="-parameters" />
+      <module name="miles-gateway" options="-parameters" />
       <module name="miles-gen" options="-parameters" />
       <module name="miles-module" options="" />
       <module name="miles-nacos" options="-parameters" />
       <module name="miles-self" options="" />
+      <module name="miles-study" options="-parameters" />
       <module name="miles-system" options="-parameters" />
+      <module name="miles-test" options="-parameters" />
       <module name="miles-visual" options="" />
     </option>
   </component>

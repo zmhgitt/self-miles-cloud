@@ -12,4 +12,10 @@ import self.miles.common.mybatis.core.mapper.BaseMapperPlus;
  */
 public interface SysUserMapper extends BaseMapperPlus<SysUser, SysUserVo> {
 
+    /**
+     * 通过用户名查询用户
+     * @param username 用户名
+     * @return 结果
+     */
+    SysUserVo selectUserByUsername(String username);
 }

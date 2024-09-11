@@ -39,7 +39,8 @@ import java.util.List;
  * @author ${author}
  * @date ${datetime}
  */
-public interface ${ClassName}Service{
+public interface ${ClassName}SyncService{
+
     /**
      * 查询${functionName}列表
      */

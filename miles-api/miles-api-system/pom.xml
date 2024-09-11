@@ -12,6 +12,10 @@
     <artifactId>miles-api-system</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>self.miles</groupId>
+            <artifactId>miles-common-core</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>

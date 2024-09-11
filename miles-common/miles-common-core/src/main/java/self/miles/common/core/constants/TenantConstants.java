@@ -1,5 +1,7 @@
 package self.miles.common.core.constants;
 
+import lombok.AccessLevel;
+
 /**
  * @ClassName: TenantConstants
  * @Description: 类描述

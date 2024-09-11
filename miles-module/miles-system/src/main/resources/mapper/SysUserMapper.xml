@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="self.miles.sys.mapper.SysUserMapper">
+
+    <resultMap type="self.miles.sys.domain.vo.SysUserVo" id="SysUserResult">
+        <id property="userId" column="user_id"/>
+        <result property="deptId" column="dept_id"/>
+        <association property="dept" column="dept_id" resultMap="deptResult"/>
+        <collection property="roles" javaType="java.util.List" resultMap="RoleResult"/>
+    </resultMap>
+
+    <sql id="selectSysUser">
+        select s.user_id, s.tenant_id, s.dept_id, s.user_name, s.nick_name, s.self_desc, s.user_type, s.email, s.phonenumber, s.sex, s.avatar, s.password, s.status, s.del_flag, s.login_ip, s.login_date, s.create_by, s.create_time, s.update_by, s.update_time, s.remark
+        from sys_user s
+    </sql>
+
+    <select id="selectUserByUsername" resultMap="SysUserResult">
+        <include refid="selectSysUser"></include>
+        where user_name = #{username}
+    </select>
+
+</mapper>

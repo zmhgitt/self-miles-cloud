@@ -1,12 +1,15 @@
 package self.miles.common.core.constants;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * @ClassName: RedisPrefixConstants
  * @Description: 类描述
  * @author: Miles
  * @date: 2024/6/4 10:37
  */
-public record RedisPrefixConstants() {
+public interface RedisPrefixConstants {
 
     /**
      * 全局 redis key (业务无关的key)

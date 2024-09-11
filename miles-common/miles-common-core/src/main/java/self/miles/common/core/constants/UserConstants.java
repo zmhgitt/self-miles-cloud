@@ -1,12 +1,15 @@
 package self.miles.common.core.constants;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * @ClassName: UserConstants
  * @Description: 类描述
  * @author: Miles
  * @date: 2024/6/5 15:51
  */
-public record UserConstants() {
+public interface UserConstants {
     /**
      * 平台内系统用户的唯一标志
      */

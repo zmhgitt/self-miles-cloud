@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    dynamic:
+      datasource:
+        master:
+          driverClassName: com.mysql.cj.jdbc.Driver
+          url: ${datasource.master.url}
+          username: ${datasource.master.username}
+          password: ${datasource.master.password}
+      primary: master

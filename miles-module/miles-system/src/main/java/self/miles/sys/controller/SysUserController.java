@@ -23,7 +23,7 @@ import self.miles.common.mybatis.core.page.TableDataInfo;
 
 /**
  * 系统用户
- * 前端访问路由地址为:/sys/user
+ * 前端访问路由地址为:/system/user
  *
  * @author Miles
  * @date 2024-06-05 17:51:37

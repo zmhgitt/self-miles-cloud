@@ -21,15 +21,14 @@ package ${packageName}.service.impl;
 #else
     #set($ObjectParam='SyncBaseParam')
 #end
-import  ${packageName}.service.${ClassName}Service;
-import  ${packageName}.mapper.${ClassName}Mapper;
+import  ${packageName}.service.${ClassName}SyncService;
+import  ${packageName}.mapper.${ClassName}SyncMapper;
 import  ${packageName}.model.po.${ClassName};
 import  ${packageName}.model.bo.${ObjectParam};
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-##import org.springframework.transaction.annotation.Transactional;
 
 /**
  * ${functionName}Service业务层处理
@@ -38,10 +37,10 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @date ${datetime}
  */
 @Service
-public class ${ClassName}ServiceImpl implements ${ClassName}Service {
+public class ${ClassName}SyncServiceImpl implements ${ClassName}SyncService {
 
     @Autowired
-    private ${ClassName}Mapper baseMapper;
+    private ${ClassName}SyncMapper baseMapper;
 
     /**
      * 查询${functionName}列表

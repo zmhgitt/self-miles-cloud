@@ -1,6 +1,9 @@
 package self.miles.common.core.constants;
 
-public record HttpStatus() {
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+public interface HttpStatus {
 
     /**
      * 操作成功
